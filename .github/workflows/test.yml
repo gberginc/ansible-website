@@ -1,0 +1,14 @@
+name: test
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout this repository
+        uses: actions/checkout@v4
+
+      - name: Run Ansible scan with minimal possible example
+        uses: xlab-steampunk/spotter-action@5.2.0
+        env:
+          SPOTTER_TOKEN: ${{ secrets.SPOTTER_API_TOKEN }}
+        continue-on-error: true

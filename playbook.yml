@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  # Include all roles for system, nginx, docker and webpage.
+  # Include all roles for system, nginx, docker and webpage. This should include scan results.
   roles:
     - system
     - nginx-with-ssl

@@ -7,10 +7,27 @@ jobs:
       - name: Checkout this repository
         uses: actions/checkout@v4
 
-      - name: Run Ansible scan with minimal possible example
+      - name: Run Ansible 2.9 scan
+        uses: xlab-steampunk/spotter-action@5.2.0
+        env:
+          SPOTTER_TOKEN: ${{ secrets.SPOTTER_API_TOKEN }}
+        with:
+          ansible_version: 2.9
+        continue-on-error: true
+
+      - name: Run Ansible 2.16 scan
         uses: xlab-steampunk/spotter-action@5.2.0
         env:
           SPOTTER_TOKEN: ${{ secrets.SPOTTER_API_TOKEN }}
         with:
           ansible_version: 2.16
+        continue-on-error: true
+
+      - name: Run security scan
+        uses: xlab-steampunk/spotter-action@5.2.0
+        env:
+          SPOTTER_TOKEN: ${{ secrets.SPOTTER_API_TOKEN }}
+        with:
+          ansible_version: 2.16
+          profile: security
         continue-on-error: true

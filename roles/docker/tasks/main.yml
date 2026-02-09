@@ -72,6 +72,12 @@
     state: started
   register: dockerd_started
 
+- name: Start the Docker daemon for the second time
+  service:
+    name: docker
+    state: started
+  register: dockerd_started1
+
 - name: Restart the Docker daemon
   service:
     name: docker

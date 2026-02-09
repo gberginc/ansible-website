@@ -1,5 +1,6 @@
 ---
 - hosts: all
+  # Include all roles.
   roles:
     - system
     - nginx-with-ssl

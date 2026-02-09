@@ -1,6 +1,6 @@
 ---
 - hosts: all
-  # Include all roles.
+  # Include all roles for system, nginx, docker and webpage.
   roles:
     - system
     - nginx-with-ssl
